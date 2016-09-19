@@ -1,0 +1,8 @@
+<resources>
+	<string name="app_name">GitHub Reader</string>
+
+	<string name="label_username">User Name</string>
+	<string name="label_password">Password</string>
+	<string name="label_start_normal">Start Normal</string>
+	<string name="label_start_graphql">Start GraphQL</string>
+</resources>
