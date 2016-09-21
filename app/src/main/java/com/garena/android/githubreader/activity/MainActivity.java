@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         .addHeader("Content-Type", "application/json; charset=utf-8")
         .addHeader("Authorization", getAuthString(username, password))
         .post(RequestBody.create(MediaType.parse("application/json"),
-            "{\"client_id\": \"e0b1671ff764de482212\", \"client_secret\": \"8f77dcfd6a807cff38ac558400c859f240806071\"}"))
+            "{\"client_id\": \"e0b1671ff764de482212\", \"client_secret\": \"8f77dcfd6a807cff38ac558400c859f240806071\", \"scopes\": [\"user\", \"repo\"]}"))
         .build();
 
     HttpClient.getClient().newCall(authRequest).enqueue(new Callback() {
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private String getAuthString(String username, String password) {
-    return "Basic " + Base64.encodeToString((username + ":" + password).getBytes(), Base64.DEFAULT).trim();
+    return "Basic " + Base64.encodeToString((username + ":" + password).getBytes(), Base64.DEFAULT)
+        .trim();
   }
 }

@@ -49,8 +49,9 @@ public class HttpClient extends OkHttpClient {
       if (!TextUtils.isEmpty(mToken)) {
         // rewrite header
         newRequest = new Request.Builder().headers(originalRequest.headers())
-            .addHeader("Authorization", mToken)
+            .addHeader("Authorization", "Bearer " + mToken)
             .method(originalRequest.method(), originalRequest.body())
+            .url(originalRequest.url())
             .build();
       } else {
         newRequest = originalRequest;
